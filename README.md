@@ -41,7 +41,6 @@ Para essas formas de pagamento não serão solicitado código de fatura ou bolet
 
 ## Regras da aplicação:
 
-- Será criada apenas uma conta por cpf ou cnpj informado
 - O email da conta deve ser único
 - O cpf ou cnpj cadastrado deve ser único.
 - Não será possível transferir um valor maior do que o saldo da conta
@@ -86,6 +85,7 @@ Para essas formas de pagamento não serão solicitado código de fatura ou bolet
 - Alterar dados da conta
 
 
+
 ## Tecnologias utilizadas
 
 ### Linguagem
@@ -107,7 +107,7 @@ Para essas formas de pagamento não serão solicitado código de fatura ou bolet
 - ModelMapper
 
 ### Banco de dados
-- PostgreSQL
+- MySQL
 
 ### Gerenciamento da aplicação
 - Azure Cloud
