@@ -70,7 +70,7 @@ Para essas formas de pagamento não serão solicitado código de fatura ou bolet
 - Criar banco
 - Listar todos os bancos
 - Listar bancos por nome
-- Listar bancos por código do banco
+- Buscar banco por código do banco
 - Listar conta por cpf ou cnpj da conta cadastrada
 - Listar contas com saldo maior ou igual que o parâmetro informado
 - Listar contas com saldo menor ou gual que o parâmetro informado
