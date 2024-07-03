@@ -71,16 +71,16 @@ Para essas formas de pagamento não serão solicitado código de fatura ou bolet
 - Listar todos os bancos
 - Listar bancos por nome
 - Buscar banco por código do banco
-- Listar conta por cpf ou cnpj da conta cadastrada
-- Listar contas com saldo maior ou igual que o parâmetro informado
-- Listar contas com saldo menor ou gual que o parâmetro informado
+
 
 ### Conta
 - Criar conta
-- Listar contas por código da conta
 - Listar contas por cidade
 - Listar contas por estado
-- Listar conta por código da conta
+- Buscar conta por código da conta
+- Listar contas por cpf ou cnpj da conta cadastrada
+- Listar contas com saldo maior ou igual que o parâmetro informado
+- Listar contas com saldo menor ou gual que o parâmetro informado
 - Realizar transferência
 - Solicitar reembolso
 - Realizar pagamento
