@@ -25,7 +25,22 @@ pipeline {
         stage('Push to GitHub') {
             steps {
                 script {
-                    def branchExists = sh(script: "git ls-remote --heads origin ${env.BRANCH_NAME}", returnStatus: true) == 0
+                    def branchName = env.BRANCH_NAME
+                    def branchExists = sh(script: "git ls-remote --heads origin ${branchName}", returnStatus: true) == 0
 
                     if (!branchExists) {
-                        sh "git c
+                        sh "git checkout -b ${branchName}"
+                    } else {
+                        sh "git checkout ${branchName}"
+                    }
+
+                    sh """
+                        git add .
+                        git commit -m 'Automated commit'
+                        git push origin ${branchName}
+                    """
+                }
+            }
+        }
+    }
+}
