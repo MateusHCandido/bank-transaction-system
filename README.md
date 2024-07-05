@@ -66,23 +66,29 @@ Para essas formas de pagamento não serão solicitado código de fatura ou bolet
 
 
 ## Funcionalidades
-
-- Criar conta
-- Criar endereço
+### Banco
 - Criar banco
-- Listar contas por código da conta
-- Listar cliente por códido do banco
-- Listar conta por cpf ou cnpj da conta cadastrada
-- Listar contas com saldo maior ou igual que o parâmetro informado
-- Listar contas com saldo menor ou gual que o parâmetro informado
-- Listar endereço por cpf ou cnpj da conta
+- Listar todos os bancos
+- Listar bancos por nome
+- Buscar banco por código do banco
+
+
+### Conta
+- Criar conta
 - Listar contas por cidade
 - Listar contas por estado
-- Listar conta por código da conta
+- Buscar conta por código da conta
+- Listar contas por cpf ou cnpj da conta cadastrada
+- Listar contas com saldo maior ou igual que o parâmetro informado
+- Listar contas com saldo menor ou gual que o parâmetro informado
 - Realizar transferência
 - Solicitar reembolso
 - Realizar pagamento
 - Alterar dados da conta
+
+### Endereço
+- Criar endereço
+- Listar endereço por cpf ou cnpj da conta
 
 
 
@@ -107,7 +113,8 @@ Para essas formas de pagamento não serão solicitado código de fatura ou bolet
 - ModelMapper
 
 ### Banco de dados
-- MySQL
+- MySQL para armazenar dados em produção
+- PostgreSQL para realização de testes de persistência
 
 ### Gerenciamento da aplicação
 - Azure Cloud
