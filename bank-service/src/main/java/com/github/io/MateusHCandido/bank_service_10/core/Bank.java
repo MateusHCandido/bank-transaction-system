@@ -4,12 +4,13 @@ package com.github.io.MateusHCandido.bank_service_10.core;
 import com.github.io.MateusHCandido.bank_service_10.core.exception.BankCodeInvalidExcEptIon;
 import com.github.io.MateusHCandido.bank_service_10.core.exception.BankNameIsBlankException;
 
-import lombok.Data;
+import lombok.*;
 
 
-
-@Data
-
+@Getter
+@Setter
+@NoArgsConstructor
+@EqualsAndHashCode
 public class Bank {
 
     private int bankCode;
@@ -34,6 +35,6 @@ public class Bank {
         if (nameIsEmpty){
             throw new BankNameIsBlankException("The bank name is blank");
         }
-        return name.trim().toLowerCase();
+        return name.trim();
     }
 }
