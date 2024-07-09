@@ -1,0 +1,7 @@
+com\github\io\MateusHCandido\bank_service_10\core\config\BankUseCaseConfigTest.class
+com\github\io\MateusHCandido\bank_service_10\core\config\BankUseCaseConfigTest$Config.class
+com\github\io\MateusHCandido\bank_service_10\BankServiceApplicationTests.class
+com\github\io\MateusHCandido\bank_service_10\core\BankTests.class
+com\github\io\MateusHCandido\bank_service_10\infra\dto\BankDtoRequestTest.class
+com\github\io\MateusHCandido\bank_service_10\core\usecase\BankUseCaseTest.class
+com\github\io\MateusHCandido\bank_service_10\infra\dto\BankDtoResponseTest.class
