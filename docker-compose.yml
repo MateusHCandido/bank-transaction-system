@@ -19,8 +19,8 @@ services:
     container_name: postgres-db
     environment:
       POSTGRES_DB: payment_service_db_test
-      POSTGRES_USER: mateuzzo
-      POSTGRES_PASSWORD: your-root
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
     ports:
       - "5432:5432"
     networks:
