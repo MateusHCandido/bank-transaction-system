@@ -1,4 +1,5 @@
 spring:
-  application:
-    name: bank-service
-
+  profiles:
+    active: dev
+  jpa:
+    open-in-view: true

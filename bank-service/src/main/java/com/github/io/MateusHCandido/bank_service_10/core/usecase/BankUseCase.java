@@ -2,11 +2,10 @@ package com.github.io.MateusHCandido.bank_service_10.core.usecase;
 
 import com.github.io.MateusHCandido.bank_service_10.core.Bank;
 import com.github.io.MateusHCandido.bank_service_10.core.exception.BankNameIsBlankException;
-import com.github.io.MateusHCandido.bank_service_10.core.exception.BankNotFoundException;
+import com.github.io.MateusHCandido.bank_service_10.core.exception.CreateBankException;
 import com.github.io.MateusHCandido.bank_service_10.core.gateway.BankUseCaseRepository;
 
 import java.util.List;
-import java.util.Optional;
 
 
 public class BankUseCase  {
@@ -24,7 +23,7 @@ public class BankUseCase  {
            repository.create( new Bank(code, name) );
            return "Bank created";
         }catch (Exception e ){
-            throw new RuntimeException(e.getMessage());
+            throw new CreateBankException(e.getMessage());
         }
     }
 
