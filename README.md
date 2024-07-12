@@ -79,8 +79,9 @@ Para essas formas de pagamento não serão solicitado código de fatura ou bolet
 - Listar contas por estado
 - Buscar conta por código da conta
 - Listar contas por cpf ou cnpj da conta cadastrada
-- Listar contas com saldo maior ou igual que o parâmetro informado
-- Listar contas com saldo menor ou gual que o parâmetro informado
+- Ativar conta
+- Bloquear conta
+- Cancelar conta
 - Realizar transferência
 - Solicitar reembolso
 - Realizar pagamento
