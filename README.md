@@ -68,9 +68,18 @@ bancária.
 - Listar contas por estado
 - Buscar conta por código da conta
 - Listar contas por cpf ou cnpj da conta cadastrada
+<<<<<<< HEAD
 - Listar contas com saldo maior ou igual que o parâmetro informado
 - Listar contas com saldo menor ou gual que o parâmetro informado
 - Realizar transação
+=======
+- Ativar conta
+- Bloquear conta
+- Cancelar conta
+- Realizar transferência
+- Solicitar reembolso
+- Realizar pagamento
+>>>>>>> 9c11d82a12537b697e835540ba0a513d7d090823
 - Alterar dados da conta
 
 ### Endereço
