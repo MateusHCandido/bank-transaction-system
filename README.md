@@ -1,43 +1,30 @@
-# serviço de pagamento bancário
-Serviço de pagamento bancário, simulando os passos para realizar um pagamento
+# sistema de transações bancárias
+
+## Sobre a aplicação
+
+O sistema simula um fluxo de transação bancária, desde a criação de um banco até o ponto da transação. Neste sistema, 
+é possível criar um banco, cadastrar contas para o banco, e durante o registro da conta do cliente, será registrado também
+seu endereço.
+ Ele atua de maneira simplificada, onde o intuito é implementar uma aplicação baseada em uma arquitetura de micro 
+serviços inteligados por transmissões de eventos, em que cada serviço é trabalho com os critérios da arquitetura limpa, 
+princípios SOLID e seus padrões.
+
+
 
 ## Modelo de relacionamento entre as entidades
-![entity-relationship-model](entity-relationship-model-1.0.jpeg)
-
-
+![entity-relationship-model](entity-relationship-model1.3.jpeg)
 
 
 ## Como funciona
 
+![transaction-flux](transaction-flux.jpeg)
+
 ### Transferência
-Uma conta que possui um determinado tipo, sendo (F) para conta de pessoa física e (J) para conta de pessoa jurídica, poderá efetuar transferência para outras contas desde que exista saldo em sua conta. A transferência será efetuada quando passado os dados da conta que receberá a transferência:
-- código do banco
-- código da conta
-- cpf ou cnpj da conta cadastrada
-- valor da transferência
-  
- Após a conclusão da transferência, será enviado um email para o proprietário informando sucesso ou fracasso da transferência e será gerado um histórico de transação, informando o tipo da transação e um campo informando o registro da ação
-  realizada.
 
-### Reembolso
-Em um caso onde ocorre uma transferência concluída mas não desejada, será possível solicitar o reembolso, passando os seguintes parâmetros:
-- código do banco
-- código da conta
-- cpf ou cnpj da conta transferida
-- valor da transferência
-- data da transferência
-
-A validação para o reembolso é simples, se os parâmetros da solicitação estiverem corretos e a conta que recebeu a transferência possuir saldo, então será realizada a transação. Após a conclusão da transferência, será enviado um email para o proprietário informando sucesso ou fracasso da transferência e será gerado um histórico de transação, informando o tipo da transação e um campo informando o registro da ação realizada.
-
-### Boleto e Cartão
-Para essa forma de pagamento, será realizada da mesma forma que a transferência, passando os dados da conta que receberá a transferência:
-- código do banco
-- código da conta
-- cpf ou cnpj da conta cadastrada
-- valor da transferência
-
-Para essas formas de pagamento não serão solicitado código de fatura ou boleto, apenas serão lançados no registro de transação com suas formas de pagamento.
-
+O cliente passará os parâmetros da transferência desejada, assim como o tipo de transação, sendo (T) para uma 
+transferência comum e (R) para solicitação de reembolso. Para ambos os tipos de solicitação, o fluxo seguirá o mesmo.
+ O sucesso da transação irá depender da autenticidade dos dados passados, assim como a disponibilidade de saldo na conta
+bancária. 
 
 ## Regras da aplicação:
 
@@ -47,9 +34,10 @@ Para essas formas de pagamento não serão solicitado código de fatura ou bolet
 - Uma conta cujo cliente possuir idade menor que 6 não será criada
 - Um código do banco deve ser único
 - Todas as transações devem ser registradas
-- Uma conta com que é bloqueada, não pode fazer nenhuma transação ou solicitação de reembolso, mas o seu saldo se permanece
+- Uma conta que é bloqueada, não pode fazer nenhuma transação, mas o seu saldo se permanece
 - Uma conta que é cancelada, só poderá ser cancelada se possuir saldo zerado
-- Em caso de uma conta Jurídica, apenas o primeironome será lançado
+- A transferência será válida se o cliente possuir saldo em conta disponível
+
 
 
 ## Informação sobre os dados:
@@ -61,9 +49,10 @@ Para essas formas de pagamento não serão solicitado código de fatura ou bolet
 ### tabela transaction
 
 - transaction_status: (S) -> Transação concluída com sucesso, (F) -> Transação com falha
-- transaction_type: (T) -> Transferência, (R) -> Reembolso, (B) -> Boleto, (C) -> Cartão
 
+### tabela log
 
+- type_log: (E) -> Erro, (S) -> Indica sucesso
 
 ## Funcionalidades
 ### Banco
@@ -81,9 +70,7 @@ Para essas formas de pagamento não serão solicitado código de fatura ou bolet
 - Listar contas por cpf ou cnpj da conta cadastrada
 - Listar contas com saldo maior ou igual que o parâmetro informado
 - Listar contas com saldo menor ou gual que o parâmetro informado
-- Realizar transferência
-- Solicitar reembolso
-- Realizar pagamento
+- Realizar transação
 - Alterar dados da conta
 
 ### Endereço
@@ -114,10 +101,13 @@ Para essas formas de pagamento não serão solicitado código de fatura ou bolet
 
 ### Banco de dados
 - MySQL para armazenar dados em produção
-- PostgreSQL para realização de testes de persistência
+- PostgreSQL para realização desenvolvimento e testes
 
 ### Gerenciamento da aplicação
 - Azure Cloud
+
+### Mensageria
+- Apache Kafka
 
 ### Teste de requisições
 - Postman
