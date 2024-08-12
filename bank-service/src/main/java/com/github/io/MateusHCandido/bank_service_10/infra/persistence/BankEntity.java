@@ -1,6 +1,6 @@
 package com.github.io.MateusHCandido.bank_service_10.infra.persistence;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

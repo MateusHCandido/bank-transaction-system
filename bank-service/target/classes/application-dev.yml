@@ -24,3 +24,13 @@ logging:
         web: DEBUG
       hibernate:
         SQL: DEBUG
+
+server:
+  port: 0
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    instance-url:  ${spring.application.name}:${spring.application.instance_id:${random.value}}
