@@ -10,21 +10,9 @@ serviços inteligados por transmissões de eventos, em que cada serviço é trab
 princípios SOLID e seus padrões.
 
 
-
-## Modelo de relacionamento entre as entidades
-![entity-relationship-model](entity-relationship-model1.3.jpeg)
-
-
 ## Como funciona
 
-![transaction-flux](transaction-flux.jpeg)
-
-### Transferência
-
-O cliente passará os parâmetros da transferência desejada, assim como o tipo de transação, sendo (T) para uma 
-transferência comum e (R) para solicitação de reembolso. Para ambos os tipos de solicitação, o fluxo seguirá o mesmo.
- O sucesso da transação irá depender da autenticidade dos dados passados, assim como a disponibilidade de saldo na conta
-bancária. 
+Um cliente poderá efetuar a criação se sua conta, e efetuar operações como transferência e depósito.
 
 ## Regras da aplicação:
 
@@ -39,11 +27,10 @@ bancária.
 - A transferência será válida se o cliente possuir saldo em conta disponível
 
 
-
 ## Informação sobre os dados:
 ### tabela account
 
-- account_type: (F) -> Conta de pessoa física, (J) -> Conta de pessoa jurídica
+- account_type: (N) -> Conta de pessoa física(natural person), (L) -> Conta de pessoa jurídica(legal person)
 - account_status (A) -> Conta ativa, (B) -> Conta bloqueada, (C) -> Conta cancelada
 
 ### tabela transaction
@@ -56,37 +43,20 @@ bancária.
 
 ## Funcionalidades
 ### Banco
-- Criar banco
-- Listar todos os bancos
-- Listar bancos por nome
-- Buscar banco por código do banco
+- Cria banco
+- Lista todos os bancos
+- Lista bancos por nome
+- Busca banco por código do banco
 
 
 ### Conta
-- Criar conta
-- Listar contas por cidade
-- Listar contas por estado
-- Buscar conta por código da conta
-- Listar contas por cpf ou cnpj da conta cadastrada
-<<<<<<< HEAD
-- Listar contas com saldo maior ou igual que o parâmetro informado
-- Listar contas com saldo menor ou gual que o parâmetro informado
-- Realizar transação
-=======
-- Ativar conta
-- Bloquear conta
-- Cancelar conta
-- Realizar transferência
-- Solicitar reembolso
-- Realizar pagamento
->>>>>>> 9c11d82a12537b697e835540ba0a513d7d090823
-- Alterar dados da conta
-
-### Endereço
-- Criar endereço
-- Listar endereço por cpf ou cnpj da conta
-
-
+- Cria conta
+- Busca conta por código da conta
+- Busca conta por cpf ou cnpj
+- Busca conta por email
+- Realiza transferência de saldo bancário para outra conta existente
+- Deposita valor em conta
+- Altera email
 
 ## Tecnologias utilizadas
 
@@ -98,7 +68,6 @@ bancária.
 - Spring Cloud
 - Spring Data
 - Hibernate
-- JavaMail
 
 ### Frameworks de testes
 - JUnit
